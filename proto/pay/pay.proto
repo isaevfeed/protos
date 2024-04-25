@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package pay;
+
+option go_package = "isaev.payv1";
+
+service Payment {
+    rpc Buy (BuyRequest) returns (BuyResponse);
+    rpc Sell (SellRequest) returns (SellResponse);
+} 
+
+message BuyRequest {
+    int64 item_id = 1;
+}
+
+message BuyResponse {
+    bool buyed = 1;
+    int64 item_id = 2;
+    int64 user_id = 3;
+}
+
+message SellRequest {
+    int64 item_id = 1;
+    int64 user_id = 2;
+}
+
+message SellResponse {
+    bool selled = 1;
+    int64 item_id = 2;
+    int64 user_id = 3;
+}
+
